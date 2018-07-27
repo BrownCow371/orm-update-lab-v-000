@@ -53,8 +53,8 @@ class Student
   end
 
   def self.find_by_name(name)
-    sql = "SELECT * FROM students WHERE name = ?"
-    student_array = DB[:conn].execute(sql, name)
+    sql = "SELECT * FROM students WHERE name = ? LIMIT 1"
+    student_array = DB[:conn].execute(sql, name).compact
     self.new_from_db(student_array)
   end
 
