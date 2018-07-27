@@ -1,5 +1,5 @@
 require_relative "../config/environment.rb"
-
+require 'pry'
 class Student
 
   # Remember, you can access your database connection anywhere in this class
@@ -55,6 +55,7 @@ class Student
   def self.find_by_name(name)
     sql = "SELECT * FROM students WHERE name = ? LIMIT 1"
     student_array = DB[:conn].execute(sql, name).compact
+    binding.pry
     self.new_from_db(student_array)
   end
 
