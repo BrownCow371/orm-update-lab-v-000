@@ -52,6 +52,12 @@ class Student
     self.new(student_array[1], student_array[2], student_array[0])
   end
 
+  def self.find_by_name(name)
+    sql = "SELECT * FROM students WHERE name = ?"
+    student_array = DB[:conn].execute(sql, name)
+    self.new_from_db(student_array)
+  end
+
   def update
     sql = <<-SQL
       UPDATE students SET name = ?, grade = ? WHERE id = ?
