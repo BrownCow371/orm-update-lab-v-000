@@ -44,6 +44,10 @@ class Student
     end
   end
 
+  def self.create(name, grade)
+    self.new(name, grade).tap{|s| s.save}
+  end
+
   def self.new_from_db(student_array)
     @id = student_array[0]
     self.name = student_array[1]
