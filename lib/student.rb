@@ -50,7 +50,7 @@ class Student
     sql = <<-SQL
       UPDATE students SET name = ?, grade = ? WHERE id = ?
       SQL
-    db[:conn].execute(sql,self.name, self.grade, self.id)
+    DB[:conn].execute(sql, self.name, self.grade, self.id)
   end
 
 end
