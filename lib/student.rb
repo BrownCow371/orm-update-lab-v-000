@@ -49,9 +49,7 @@ class Student
   end
 
   def self.new_from_db(student_array)
-    @id = student_array[0]
-    self.name = student_array[1]
-    self.grade = student_array[2]
+    self.new(student_array[1], student_array[2], student_array[0])
   end
 
   def update
