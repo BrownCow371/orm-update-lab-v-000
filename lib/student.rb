@@ -55,7 +55,7 @@ class Student
   def self.find_by_name(name)
     sql = "SELECT * FROM students WHERE name = ? LIMIT 1"
     student_array = DB[:conn].execute(sql, name).flatten
-    binding.pry
+    #binding.pry
     self.new_from_db(student_array)
   end
 
